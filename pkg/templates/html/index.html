@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoBase</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="icon" type="image/x-icon" href="/static/images/logos/ico/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Syne:wght@400..800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                primary: '#000000',
+                secondary: '#14213d',
+                tertiary: '#fca311',
+                quaternary: '#e5e5e5',
+                quinary: '#ffffff'
+              }
+            }
+          }
+        }
+      </script>
+</head>
+<body class="w-screen h-screen px-8 py-6 m-0 bg-primary" style="font-family: 'Roboto', sans-serif;">
+    <header class="w-full h-10 flex flex-row items-center justify-between">
+        <div class="h-10 flex flex-row items-center justify-start">
+            <img class="h-full object-contain" src="/static/images/logos/svg/logo-no-background.svg" alt="">
+            <p class="text-quinary ml-4 bg-gray-500 px-4 py-1 rounded-full text-sm">BETA</p>
+        </div>
+        <div class="h-10 flex flex-row items-center justify-start gap-4">
+            <p class="text-lg text-quinary font-light cursor-pointer hover:bg-tertiary hover:text-primary hover:font-normal transition-all ease-in-out duration-700 rounded-lg px-4 py-1">Documentation</p>
+            <p class="text-lg text-quinary font-light cursor-pointer hover:bg-tertiary hover:text-primary hover:font-normal transition-all ease-in-out duration-700 rounded-lg px-4 py-1">Feedback</p>
+            <p class="text-lg text-quinary font-light cursor-pointer hover:bg-tertiary hover:text-primary hover:font-normal transition-all ease-in-out duration-700 rounded-lg px-4 py-1">Support</p>
+            <p class="text-lg text-quinary font-light cursor-pointer hover:bg-tertiary hover:text-primary hover:font-normal transition-all ease-in-out duration-700 rounded-lg px-4 py-1">Github</p>
+        </div>
+        <div class="h-10 flex flex-row items-center justify-center gap-2">
+            <p class="text-lg text-primary bg-tertiary font-semibold text-xl rounded-full px-3 py-2">TS</p>
+            <div class="flex flex-col items-start justify-center">
+                <p class="text-base text-quinary font-light">Tanmoy Saha</p>
+                <p class="text-xs text-quinary font-light">Personal Project</p>
+            </div>
+            <img class="text-tertiary h-6" src="/static/images/icons/svg/iconamoon--arrow-down-2-duotone.svg" alt="">
+        </div>
+    </header>
+    <main>
+        <p>This is the home page of MyBaaS. Here you can start managing your projects and databases.</p>
+    </main>
+    <footer>
+        <p>&copy; 2024 MyBaaS. All rights reserved.</p>
+    </footer>
+    <script src="/static/js/scripts.js"></script>
+</body>
+</html>

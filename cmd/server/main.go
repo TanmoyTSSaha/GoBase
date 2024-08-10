@@ -1,13 +1,28 @@
 package main
 
 import (
+	"context"
 	"log"
 	"net/http"
-	"github.com/TanmoyTSSaha/GoBase/internal/router"
+
+	"github.com/TanmoyTSSaha/GoBase/configs"
+	"github.com/TanmoyTSSaha/GoBase/internal/database/mongodb"
+	"github.com/TanmoyTSSaha/GoBase/internal/gateway"
 )
 
-func main()  {
-	r := router.InitRouter()
+func main() {
+	if err := configs.LoadConfig(); err != nil {
+		log.Fatalf("ERROR LOADING CONFIG: %v", err)
+	}
+	
+	mongoClient, err := mongodb.MongoConnect(configs.Config.MongoDB.URI, configs.Config.MongoDB.Database)
+	if err != nil {
+		log.Fatalf("ERROR CONNECTING MONGODB: %v", err)
+	}
+
+	defer mongoClient.Client.Disconnect(context.Background())
+
+	r := gateway.InitRouter(mongoClient.Database)
 
 	// SERVE STATIC FILES (CSS, JS & IMAGES)
 	staticFileHandler := http.FileServer(http.Dir("pkg/templates/assets"))
@@ -19,4 +34,3 @@ func main()  {
 		log.Fatalf("Failed to start server: %v", err)
 	}
 }
-

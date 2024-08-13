@@ -1,9 +1,7 @@
 server:
-  address: ":8080"
-
+  address: :8080
 mongodb:
-  uri: "mongodb//localhost:27017"
-  database: "logs"
-
+  uri: mongodb://localhost:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.2.15
+  database: logs
 internals:
-  isLogDependenciesCreated: false
+  isLogDependenciesCreated: true

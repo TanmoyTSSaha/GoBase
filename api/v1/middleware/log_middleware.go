@@ -25,13 +25,15 @@ func LoggingMiddleware(logService *services.LogService) func(next http.Handler) 
 			// CALL THE NEXT HANDLER
 			next.ServeHTTP(rw, r)
 
+
+
 			duration := time.Since(start)
 			message := fmt.Sprintf("COMPLETED %s METHOD AT %s WITH STATUS CODE %d IN %v", r.Method, r.URL.Path, rw.statusCode, duration)
-			// INITIATING LOG STORING PROCESS
-			log_details := services.LogStruct{URL: r.URL.Path, Timestamp: start, Method: r.Method, StatusCode: rw.statusCode, ResponseDuration: duration, Message: message}
-			if err := logService.StoreLogs(log_details); err != nil {
-				log.Printf("FAILED TO STORE LOG: %v", err)
-			}
+			// INITIATING LOG STORING PROCESS || FOR DEVELOPMENT PURPOSE I HAVE STOPPED THE LOG STORING PROCESS
+			// log_details := services.LogStruct{URL: r.URL.Path, Timestamp: start, Method: r.Method, StatusCode: rw.statusCode, ResponseDuration: duration, Message: message}
+			// if err := logService.StoreLogs(log_details); err != nil {
+			// 	log.Printf("FAILED TO STORE LOG: %v", err)
+			// }
 
 			// LOGGING RESPONSE DETAILS AND DURATION
 			log.Printf(message)

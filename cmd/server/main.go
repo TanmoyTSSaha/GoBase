@@ -14,8 +14,8 @@ func main() {
 	if err := configs.LoadConfig(); err != nil {
 		log.Fatalf("ERROR LOADING CONFIG: %v", err)
 	}
-	
-	mongoClient, err := mongodb.MongoConnect(configs.Config.MongoDB.URI, configs.Config.MongoDB.Database)
+
+	mongoClient, err := mongodb.MongoConnect(configs.Config.MongoDB.URI, configs.Config.MongoDB.Database, &configs.Config)
 	if err != nil {
 		log.Fatalf("ERROR CONNECTING MONGODB: %v", err)
 	}

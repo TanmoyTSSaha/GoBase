@@ -17,11 +17,11 @@ func TestGenerateToken(t *testing.T) {
 		fmt.Printf("ERROR ENCOUNTERED:: %v", err)
 	}
 
-	fmt.Printf("::::::::::TOKEN STRING GENERATED SUCCESSFULLY::::::::::\n%s\n\n", tokenString)
+	fmt.Printf("::::::::::TOKEN STRING GENERATED SUCCESSFULLY::::::::::\n\n%s\n\n", tokenString)
 }
 
 func TestVerifyToken(t *testing.T) {
-	tokenString := `eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6ZmFsc2UsImV4cCI6MTcyMzgxOTc0MywiaWF0IjoxNzIzNTYwNTQzLCJuYW1lIjoiVGFubW95IFNhaGEiLCJzdWIiOiJ0YW5tb3kuc2FoYSJ9.Hh68zIzgYC4mWFVKWOWGdRWVssu-cNNNYoCRxI-AhST0ae90mu9Vapz7ZUHuTPesbghMloCBkC043LsNHobNuT9CAOC54hwI0YRaHz6j_XsUZmDkZKiOSfSy1HakpU1FOfZZj7Qp7rGaD4eF9FAiHWuFDI_XoG2zCRyXjpQeTPfguzeoqBJPqzmQhJDdCD2xLBTYS2HvopFNL0ETOLVO5GpFzpnqww4gm1X6yLllYz1fLajGqg3uQ9Iewo4DJB40bHKFjW5JLbNyV3Jb7U4sAggrTfODUpIEe0FGBgtyu2CI5k9IKDZ6k9vIkb4Ea9_AbsvDeg9Z1cKRG3jZ6pPWEA`
+	tokenString := `eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6ZmFsc2UsImV4cCI6MTcyMzU3MTgzOCwiaWF0IjoxNzIzNTcxNzc4LCJuYW1lIjoiVGFubW95IFNhaGEiLCJzdWIiOiJ0YW5tb3kuc2FoYSJ9.ecggGBg_-WrNEWdE80KxGKTGOw-tLoY5N0PNjEK1Z2Wyv01odpY1WyhvUi8vIfiwqoMMrRuoVsn97mcn-aLPXwL-OLZrgoP2d47h4b7XO7XVlsLS8zdif6vzeaCLzl-0vtTMdM8UQp1CV5hfsa9x5eI7RtKspjGmhLKdWILuTZ3bQgoq3NaM-W7mcIFH2yKhYvmloRTFztp27Ntn3ejOIKPS480wIRs-ehbeYYfF4othrXe5f5btl1LkwxkJY_cVN80wG7P80eNPLw33rUWGD_RkFWmeDpkgZEEuv9vpgfgJKXU6rBRu4uapt0z4YLIz8e9gqNMZtTyY9_8_MqRBAg`
 
 	jwtToken, err := auth.VerifyJWTToken(tokenString)
 	if err != nil {
@@ -33,5 +33,5 @@ func TestVerifyToken(t *testing.T) {
 		fmt.Printf("cannot verify the token! please give a proper token!")
 	}
 
-	fmt.Printf("::::::::::TOKEN VERIFIED SUCCESSFULLY::::::::::\n%s\n\n%s\t\t%s\n\n", jwtToken.Raw, claims["sub"], claims["name"])
+	fmt.Printf("::::::::::TOKEN VERIFIED SUCCESSFULLY::::::::::\n\n%s\n\n%s\t\t%s\n\n", jwtToken.Raw, claims["sub"], claims["name"])
 }

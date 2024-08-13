@@ -43,7 +43,7 @@ func LoadConfig() error {
 	return nil
 }
 
-func UpdateCongif(config *Configuration) error {
+func UpdateConfig(config *Configuration) error {
 	data, err := yaml.Marshal(config)
 	if err != nil {
 		return err

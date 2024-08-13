@@ -38,7 +38,7 @@ func MongoConnect(url, dbName string, config *configs.Configuration) (*MongoDBCl
 		createDatabase(dbName, client)
 		updatedConfig := config
 		updatedConfig.Internals.IsLogDependenciesCreated = true
-		configs.UpdateCongif(updatedConfig)
+		configs.UpdateConfig(updatedConfig)
 	}
 
 	database := client.Database(dbName)
